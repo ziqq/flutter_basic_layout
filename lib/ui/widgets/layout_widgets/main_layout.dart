@@ -58,74 +58,75 @@ class _MainLayoutState extends State<MainLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          title: AnimatedOpacity(
-            opacity: _showAppbar ? 1 : 0,
-            duration: _animatedFadeDuration,
-            child: Text(
-              _showAppbar ? widget.title : '',
-              style: TextStyle(color: Colors.black, fontSize: 18),
-            ),
-          ),
-          elevation: 0,
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-          actions: [
-            if (widget.actions != null)
-              AnimatedOpacity(
-                opacity: _showAppbar ? 1 : 0,
-                duration: _animatedFadeDuration,
-                child: Row(children: widget.actions),
-              )
-          ],
-          bottom: PreferredSize(
-            child: Container(
-              color: _showAppbar ? Colors.black12 : Colors.transparent,
-              height: 1.0,
-            ),
-            preferredSize: Size.fromHeight(1.0),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: AnimatedOpacity(
+          opacity: _showAppbar ? 1 : 0,
+          duration: _animatedFadeDuration,
+          child: Text(
+            _showAppbar ? widget.title : '',
+            style: TextStyle(color: Colors.black, fontSize: 18),
           ),
         ),
-        body: SingleChildScrollView(
-          controller: _scrollController,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(
-                  left: 20.0,
-                  right: widget.actions != null ? 0 : 20,
-                  top: 20.0,
-                  bottom: 10.0,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      widget.title,
-                      style: TextStyle(
-                        fontSize: 28.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    if (widget.actions != null) Row(children: widget.actions)
-                  ],
-                ),
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        actions: [
+          if (widget.actions != null)
+            AnimatedOpacity(
+              opacity: _showAppbar ? 1 : 0,
+              duration: _animatedFadeDuration,
+              child: Row(children: widget.actions),
+            )
+        ],
+        bottom: PreferredSize(
+          child: Container(
+            color: _showAppbar ? Colors.black12 : Colors.transparent,
+            height: 1.0,
+          ),
+          preferredSize: Size.fromHeight(1.0),
+        ),
+      ),
+      body: SingleChildScrollView(
+        controller: _scrollController,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                left: 20.0,
+                right: widget.actions != null ? 0 : 20,
+                top: 20.0,
+                bottom: 10.0,
               ),
-              ...widget.body,
-            ],
-          ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    widget.title,
+                    style: TextStyle(
+                      fontSize: 28.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  if (widget.actions != null) Row(children: widget.actions)
+                ],
+              ),
+            ),
+            ...widget.body,
+          ],
         ),
-        floatingActionButton: widget.floatingActionButton,
-        bottomNavigationBar: MyBottomNavigation());
+      ),
+      floatingActionButton: widget.floatingActionButton,
+      // bottomNavigationBar: MyBottomNavigation(),
+    );
   }
 }
 

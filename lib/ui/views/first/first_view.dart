@@ -4,16 +4,7 @@ import 'package:flutter_basic_layout/ui/widgets/dumb_widgets/content.dart';
 
 import '../../widgets/layout_widgets/main_layout.dart';
 
-class FirstView extends StatefulWidget {
-  FirstView({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _FirstViewState createState() => _FirstViewState();
-}
-
-class _FirstViewState extends State<FirstView> {
+class FirstView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainLayout(

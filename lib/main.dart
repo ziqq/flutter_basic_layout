@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         theme: regularTheme,
         darkTheme: darkTheme,
         themeMode: themeMode,
-        initialRoute: routes.FirstViewRoute,
+        initialRoute: routes.MainViewRoute,
         onGenerateRoute: router.generateRoute,
       ),
     );
